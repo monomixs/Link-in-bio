@@ -5,26 +5,6 @@
     box-sizing: border-box;
 }
 
-/* Mobile touch hover effect */
-.link-item.hovered {
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  background-color: #fcfcfc;
-}
-
-.link-item.hovered::after {
-  transform: translateX(100%);
-}
-
-.link-item.hovered .link-icon {
-  transform: scale(1.1) rotate(5deg);
-}
-
-.link-item.hovered .arrow-icon {
-  transform: translateX(5px);
-  color: #555;
-}
-
 * {
   -webkit-tap-highlight-color: transparent; /* Removes tap highlight on iOS */
   -webkit-user-select: none; /* Disables text selection on iOS Safari */
@@ -325,4 +305,24 @@ body {
     .link-text p {
         font-size: 0.75rem;
     }
+}
+
+/* Mobile touch hover effect */
+.link-item.hovered {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  background-color: #fcfcfc;
+}
+
+.link-item.hovered::after {
+  transform: translateX(100%);
+}
+
+.link-item.hovered .link-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.link-item.hovered .arrow-icon {
+  transform: translateX(5px);
+  color: #555;
 }
