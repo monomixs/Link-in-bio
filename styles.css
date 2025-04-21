@@ -5,6 +5,16 @@
     box-sizing: border-box;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent; /* Removes tap highlight on iOS */
+  -webkit-user-select: none; /* Disables text selection on iOS Safari */
+  -moz-user-select: none;    /* Disables text selection on Firefox */
+  -ms-user-select: none;     /* Disables text selection on old IE/Edge */
+  user-select: none;         /* Disables text selection everywhere */
+
+  outline: none;             /* Removes focus outline */
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
