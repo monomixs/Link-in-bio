@@ -1,152 +1,186 @@
-body {
-    background-color: #8390fa;
-    display: grid;
-    color: white;
-    overflow:hidden;
-    font-family: sans-serif;
+/* --- CSS Variables --- */
+:root {
+    --bg-color: #8390fa;
+    --primary-accent: #1D2F6F;
+    --secondary-accent: #273e94;
+    --hover-accent: #293f96;
+    --text-color-light: white;
+    --text-color-dark: #1d2f6f; /* For footer link */
+    --title-highlight-color: #FAC748;
+    --subtitle-color: #8390FA; /* Same as body background */
+
+    --profile-image-size: 150px;
+    --contact-card-height: 75px;
+    --contact-svg-icon-size: 38px; /* Desired size for SVG icons */
 }
 
+/* --- Global Styles & Resets --- */
 * {
-    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color-light);
+    font-family: sans-serif;
+    display: grid;
+    justify-items: center;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+}
 
-@keyframes appear{
+/* --- Animations --- */
+@keyframes appear {
     from {
         opacity: 0;
-        scale: 0.5;
+        transform: scale(0.5);
     }
     to {
         opacity: 1;
-        scale: 1;
+        transform: scale(1);
     }
 }
 
-
+/* --- Header & Profile --- */
+.page-header {
+    text-align: center;
+    user-select: none;
+}
 
 .profile {
-    animation: appear .5s linear;
-    animation-timeline: view();
-    animation-range: entery 0% cover 40%;
-    user-select: none;
-    box-shadow: 5px 2px 0px #273e94;
-    position: relative;
-    top: 25px;
-    width: 150px;
-    height: 150px;
-    border-radius: 75px;
-    margin: 0 auto;
-    border: 4px solid #1D2F6F;
-    transition: ease-in-out 0.4s;
+    margin-bottom: 10px;
 }
 
-.profile:hover {
-    box-shadow: 5px 5px 10px #273e94;
-    position: relative;
-    top: 20px;
-    border-radius: 50px;
+.profile-image {
+    width: var(--profile-image-size);
+    height: var(--profile-image-size);
+    border-radius: 50%;
+    border: 4px solid var(--primary-accent);
+    box-shadow: 5px 2px 0px var(--secondary-accent);
+    object-fit: cover;
+    transition: all 0.4s ease-in-out;
+    animation: appear 0.5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
 }
 
-.contact {
-    animation: appear .5s linear;
+.profile-image:hover {
+    box-shadow: 5px 5px 10px var(--secondary-accent);
+    transform: translateY(-5px);
+    border-radius: 33%;
+}
+
+.main-title {
+    font-size: 2em;
+    color: var(--title-highlight-color);
+    -webkit-text-stroke: 2px var(--title-highlight-color);
+}
+
+/* --- Links Container --- */
+.links-container {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* --- Contact Card & Link Styling --- */
+.contact-card {
+    animation: appear 0.5s linear;
     animation-timeline: view();
-    animation-range: entery 0% cover 40%;
+    animation-range: entry 0% cover 40%;
+}
+
+.contact-link {
+    background-color: var(--primary-accent);
+    width: 100%;
+    height: var(--contact-card-height);
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px var(--secondary-accent);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    text-decoration: none;
+    color: inherit;
     user-select: none;
     cursor: pointer;
-    background-color: #1D2F6F;
-    width: 70%;
-    height: 75px;
-    border-radius: 12px;
-    margin: auto;
-    box-shadow: 5px 5px 10px #273e94;
-    transition: ease-in-out 0.3s;
+    transition: all 0.3s ease-in-out;
 }
 
-.contact:hover {
-    background-color: #293f96;
-    width: 72%;
-    height: 77px;
+.contact-link:hover {
+    background-color: var(--hover-accent);
+    transform: scale(1.02); 
     border-radius: 18px;
 }
 
-#insta {
-    user-select: none;
-    width: 35px;
-    height: 35px;
-    position: relative;
-    border-radius: 16px;
-    top: -35%;
-    left: 24px
+.contact-icon-area {
+    display: flex; /* Helps center the SVG */
+    align-items: center;
+    justify-content: center;
+    min-width: 50px; /* Ensure space for icon */
+    margin-right: 15px;
 }
 
-.fa-brands {
-    user-select: none;
-    font-size: 40px;
-    border-radius: 8px;
-    height: 35px;
-    position: relative;
-    top: -37%;
-    left: -15px
+.contact-icon { /* Styles for the SVG icons */
+    width: var(--contact-svg-icon-size);
+    height: var(--contact-svg-icon-size);
+    fill: var(--text-color-light); /* SVG color */
+    /* Add other styles if needed, e.g., stroke for outline SVGs */
 }
 
-.github {
-    user-select: none;
-    font-size: 40px;
-    border-radius: 8px;
-    height: 35px;
-    position: relative;
-    top: -35%;
-    left: -15px;
+/* Removed .contact-icon-bg and related ID styles (e.g. #insta-bg) */
+/* Removed FontAwesome specific styles like .fa-brands */
+
+
+.contact-text-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-#git {
-    user-select: none;
-    width: 35px;
-    height: 35px;
-    position: relative;
-    border-radius: 99px;
-    top: -32%;
-    left: 24px;
-}
-
-.title {
-    user-select: none;
-    color: #FAC748;
+.contact-title {
+    color: var(--title-highlight-color);
     font-weight: bold;
-    position: relative;
-    font-size: 25px;
-    left: 90px;
-    top: 25px;
-    margin: -14px;
+    font-size: 22px;
+    margin: 0;
+    line-height: 1.2;
+    -webkit-text-stroke: 1px var(--title-highlight-color);
 }
 
-.sub {
-    user-select: none;
+.contact-subtitle {
+    font-size: 14px;
+    color: var(--subtitle-color);
+    margin: 0;
     padding-top: 3px;
-    position: relative;
-    font-size: 15px;
-    color: #8390FA;
-    left: 76px;
-    top: 25px;
-    margin-top: 14px;
+    line-height: 1.2;
+    -webkit-text-stroke: 1px var(--subtitle-color);
 }
 
-#sub {
+/* --- Footer --- */
+.page-footer {
+    text-align: center;
+    color: var(--text-color-dark);
+    font-size: 0.9em;
+    padding: 10px 0;
     user-select: none;
-    width: 35px;
-    height: 35px;
-    position: relative;
-    border-radius: 5px;
-    top: -33%;
-    left: 25px;
 }
 
-#name {
-    user-select:contain;
-    color: #1d2f6f;
+.page-footer p {
+    margin: 0;
+}
+
+.footer-credit-link {
+    color: var(--text-color-dark);
     text-decoration: none;
+    font-weight: bold;
+    user-select: auto;
 }
 
-#name2 {
-    color: #1d2f6f;
+.footer-credit-link:hover {
+    text-decoration: underline;
 }
