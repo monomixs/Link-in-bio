@@ -90,11 +90,6 @@ body {
 }
 
 /* --- Contact Card & Link Styling --- */
-.contact-card {
-    animation: appear 0.3s linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 5%;
-}
 
 .contact-link {
     background-color: var(--primary-accent);
